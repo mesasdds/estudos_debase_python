@@ -1,0 +1,27 @@
+import random 
+import math
+
+print("Defina um intervalo de numeros para advinhar o numero aleatorio")
+menor = int(input("Digite o menor numero: "))
+maior = int(input("Digite o maior numero: "))
+
+numero = int(random.randint(1, 30))
+print("\n\tVocê tem ", round(math.log(maior - menor + 1,2 )), "chances para acertar")
+
+count = 0 
+
+
+while count < math.log(maior - menor + 1, 2):
+    count += 1
+
+    guess = int(input("Advinhe o numero: "))
+
+    if numero == guess:
+        print("Parabens você acertou, o numero era: ", numero, "E ainda restaram", count)
+    elif numero > guess:
+        print("Tente maior que isso!")
+    elif numero < guess:
+        print("Tente menos que isso!")
+if count >= math.log(maior - menor + 1, 2):
+    print("\nO numero é: %d" %numero)
+    print("\tMais sorte da proxima vez! ")
